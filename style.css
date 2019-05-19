@@ -1,0 +1,72 @@
+html {
+  background: url(https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9);
+  background-size: cover;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 20px;
+  text-align: left;
+  padding-left: 50px;
+  padding: 0 20px;
+}
+
+.title {
+  text-align: center;
+  background: white;
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  padding: 50px 0;
+  border: outset grey 10px;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 5;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.box {
+  display: flex;
+  background: url(./images/soon.jpg);
+  background-size: cover;
+  height: 300px;
+  margin: 50px;
+  width: 300px;
+  border: lightgrey solid 15px;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  align-items: inherit;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10%;
+  border-style: inset;
+}
+
+.project1 {
+  background: url(./images/JS-background2.jpg);
+  background-size: cover;
+}
+
+.box a {
+  text-align: center;
+  margin-top: 220px;
+  text-decoration: none;
+  color: black;
+}
