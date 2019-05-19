@@ -49,7 +49,6 @@ p {
   margin: 50px;
   width: 300px;
   border: lightgrey solid 15px;
-  color: black;
   font-size: 20px;
   font-weight: 700;
   align-items: inherit;
@@ -59,7 +58,16 @@ p {
   border-style: inset;
 }
 
-.project1 {
+.box:hover {
+  transform: scale(1.1);
+  transition: all .5s ease;
+  border-color: blue;
+}
+
+.project1
+
+/* .project2  */
+  {
   background: url(./images/JS-background2.jpg);
   background-size: cover;
 }
