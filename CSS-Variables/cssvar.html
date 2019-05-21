@@ -43,7 +43,10 @@
     <label for="hue-rotate"> Hue-Rotate: </label>
     <input id="hue-rotate" type="range" name="hue-rotate" min="0" max="360" value="0" data-sizing="deg">
     <br>
+    <button id="reset" type="reset">Reset</button>
   </div>
+
+
 
   <img src="https://source.unsplash.com/800x500/?javascript">
 
@@ -84,6 +87,22 @@
       filter: blur(var(--blur)) grayscale(var(--grayscale)) brightness(var(--brightness)) contrast(var(--contrast)) opacity(var(--opacity)) invert(var(--invert)) sepia(var(--sepia)) saturate(var(--saturate)) hue-rotate(var(--hue-rotate));
     }
 
+    button {
+      padding: 20px 100px;
+      margin-top: 30px;
+      border-radius: 5%;
+      font-weight: 800;
+      font-size: 25px;
+      background: var(--base);
+    }
+
+    button:hover {
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      color: white;
+      background: green;
+    }
 
     body {
       text-align: center;
@@ -97,7 +116,7 @@
     .controls {
       margin-bottom: 25px;
       font-size: 35px;
-      padding-bottom: 50px;
+      padding-bottom: 25px;
     }
 
     input {
@@ -114,6 +133,12 @@
       // console.log(this.name);
       document.documentElement.style.setProperty(`--${this.name}`, this.value +
         suffix);
+    }
+
+    var reset = document.getElementById('reset').addEventListener('click', reset);
+
+    function reset() {
+      window.location.reload()
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
