@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+
+<body>
+  <h2>Image Editor using <span class='hl2'>CSS Variables</span> and <span class='hl'>JavaScript</span></h2>
+
+  <div class="controls">
+    <label for="base"> Border Color: </label>
+    <input id="base" type="color" name="base" value="#fce205">
+    <br>
+    <label for="spacing">Border Size: </label>
+    <input id="spacing" type="range" name="spacing" min="0" max="200" value="20" data-sizing="px">
+    <br>
+    <label for="blur"> Blur: </label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
+    <br>
+    <label for="brightness"> Brightness:</label>
+    <input id="brightness" type="range" name="brightness" min="0" max="200" value="100" data-sizing="%">
+    <br>
+    <label for="contrast"> Contrast:</label>
+    <input id="contrast" type="range" name="contrast" min="0" max="200" value="100" data-sizing="%">
+    <br>
+    <label for="opacity"> Opacity:</label>
+    <input id="opacity" type="range" name="opacity" min="0" max="100" value="100" data-sizing="%">
+    <br>
+    <label for="invert"> Invert:</label>
+    <input id="invert" type="range" name="invert" min="0" max="100" value="0" data-sizing="%">
+    <br>
+    <label for="saturate"> Saturate: </label>
+    <input id="saturate" type="range" name="saturate" min="0" max="200" value="100" data-sizing="%">
+    <br>
+    <label for="grayscale"> Grayscale: </label>
+    <input id="grayscale" type="range" name="grayscale" min="0" max="100" value="0" data-sizing="%">
+    <br>
+    <label for="sepia"> Sepia: </label>
+    <input id="sepia" type="range" name="sepia" min="0" max="100" value="0" data-sizing="%">
+    <br>
+    <label for="hue-rotate"> Hue-Rotate: </label>
+    <input id="hue-rotate" type="range" name="hue-rotate" min="0" max="360" value="0" data-sizing="deg">
+    <br>
+  </div>
+
+  <img src="https://source.unsplash.com/800x500/?javascript">
+
+
+  <!-- ?  misc styles, nothing to do with CSS variables -->
+  <style>
+    :root {
+      --base: #fce205;
+      --spacing: 20px;
+      --blur: 0px;
+      --brightness: 100%;
+      --contrast: 100%;
+      --opacity: 100%;
+      --invert: 0%;
+      --saturate: 100%;
+      --grayscale: 0%;
+      --sepia: 0%;
+      --hue-rotate: 0deg;
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    .hl2 {
+      color: green;
+    }
+
+    label {
+      display: inline-block;
+      width: 250px;
+      text-align: right;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur)) grayscale(var(--grayscale)) brightness(var(--brightness)) contrast(var(--contrast)) opacity(var(--opacity)) invert(var(--invert)) sepia(var(--sepia)) saturate(var(--saturate)) hue-rotate(var(--hue-rotate));
+    }
+
+
+    body {
+      text-align: center;
+      background: #464849;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 25px;
+      font-size: 35px;
+      padding-bottom: 50px;
+    }
+
+    input {
+      width: 250px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate() {
+      // console.log(this.value);
+      const suffix = this.dataset.sizing || '';
+      // console.log(this.name);
+      document.documentElement.style.setProperty(`--${this.name}`, this.value +
+        suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+  </script>
+
+</body>
+
+</html>

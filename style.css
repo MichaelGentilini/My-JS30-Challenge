@@ -50,6 +50,7 @@ p {
   width: 250px;
   border: lightgrey solid 15px;
   font-size: 18px;
+
   align-items: inherit;
   justify-content: center;
   border-radius: 10%;
@@ -58,30 +59,27 @@ p {
 
 .box:hover {
   transform: scale(1.1);
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   border-color: blue;
-}
-
-.project1,
-.project2
-
-/* .project2  */
-  {
-  background: url(./images/JS-background2.jpg);
-  background-size: cover;
-  color: red;
 }
 
 a {
   text-decoration: none;
 }
 
-
 a span {
   color: grey;
   margin-top: 200px;
-  text-decoration: none;
   text-align: center;
-  padding: 0 20px';
+  padding: 0 20px;
+}
 
+/* .project2  */
+.project1,
+.project2,
+.project3 {
+  background: url(./images/JS-background2.jpg);
+  background-size: cover;
+  font-weight: 600;
+  font-style: italic;
 }
